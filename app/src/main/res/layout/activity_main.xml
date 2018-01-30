@@ -23,7 +23,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="numberDecimal"
+        android:inputType="number|numberSigned|numberDecimal"
         app:layout_constraintStart_toEndOf="@+id/XtextView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +44,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="numberDecimal"
+        android:inputType="number|numberSigned|numberDecimal"
         app:layout_constraintStart_toEndOf="@+id/YtextView"
         app:layout_constraintTop_toTopOf="parent" />
 

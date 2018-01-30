@@ -5,7 +5,7 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  * Created by quyon on 2018/1/24.
@@ -55,4 +55,5 @@ class WiFiManagent {
         }
         return wifiInfo;
     }
+
 }
