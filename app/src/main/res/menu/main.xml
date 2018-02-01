@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/startScan"
+        android:title="@string/startScan"></item>
+    <item
+        android:id="@+id/stopScan"
+        android:title="@string/stopScan"></item>
+
+</menu>

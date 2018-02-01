@@ -51,7 +51,7 @@ class WiFiManagent {
             return null;
         ArrayList<String>wifiInfo = new ArrayList<>();
         for (ScanResult e:wifiList){
-            wifiInfo.add(e.BSSID + e.level + e.SSID);
+            wifiInfo.add(e.BSSID +' '+ e.level);
         }
         return wifiInfo;
     }
