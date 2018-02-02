@@ -2,6 +2,7 @@ package com.quyon.wifilocation;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.net.wifi.ScanResult;
@@ -30,12 +31,10 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button scanButton;
     private Button write2FileButton;
     private EditText XeditText;
     private EditText YeditText;
     private ListView listView;
-    private Spinner spinner;
     private MenuItem menuItem1;
     private MenuItem menuItem2;
     private WiFiManagent wiFiManagent;
@@ -51,12 +50,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        scanButton = findViewById(R.id.scanButton);
+        Button scanButton = findViewById(R.id.scanButton);
         write2FileButton = findViewById(R.id.write2File);
         XeditText = findViewById(R.id.XeditText);
         YeditText = findViewById(R.id.YeditText);
         listView = findViewById(R.id.listView);
-        spinner = findViewById(R.id.Zspinner);
+        Spinner spinner = findViewById(R.id.Zspinner);
         wiFiManagent = new WiFiManagent(this);
 
         scanButton.setOnClickListener(new View.OnClickListener() {
@@ -124,6 +123,10 @@ public class MainActivity extends AppCompatActivity {
                 isRecording = false;
                 isNewFile = true;
                 write2FileButton.setEnabled(false);
+                break;
+            case R.id.jump:
+                Intent intent = new Intent(MainActivity.this,Main2Activity.class);
+                startActivity(intent);
                 break;
                 default:
                     break;

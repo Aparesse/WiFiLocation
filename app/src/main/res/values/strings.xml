@@ -3,4 +3,11 @@
     <string name="floor_CN">楼层</string>
     <string name="startScan">开始记录</string>
     <string name="stopScan">停止记录</string>
+    <string name="choseFile1">选择数据文件</string>
+    <string name="choseFile2">选择测试文件</string>
+    <string name="scanFile">扫描文件</string>
+    <string name="getNum">计算结果</string>
+    <string name="dataBaseFile">数据文件</string>
+    <string name="testFile">测试文件</string>
+    <string name="getNumActivity">计算测试数据</string>
 </resources>

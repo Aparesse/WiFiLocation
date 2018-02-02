@@ -19,7 +19,7 @@ import static java.lang.Math.sqrt;
  * 4. 投票选出结果
  *
  * Created by quyon on 2018/2/1.
- *  感谢郭任同学在算法部分的帮助
+ * 感谢郭任同学在算法部分的帮助
  */
 
 class KNN {
@@ -33,18 +33,18 @@ class KNN {
             double y;
             double z;
         }
-        private Vector<AP[]> dbaps=new Vector<AP[]>();
-        private Vector<AP[]> testaps=new Vector<AP[]>();
-        private Vector<Point> db_points=new Vector<Point>();;
-        private Vector<Point> true_points=new Vector<Point>();
-        private Vector<Point> clac_points=new Vector<Point>();
+        private Vector<AP[]> dbaps= new Vector<>();
+        private Vector<AP[]> testaps= new Vector<>();
+        private Vector<Point> db_points= new Vector<>();
+        private Vector<Point> true_points= new Vector<>();
+        private Vector<Point> clac_points= new Vector<>();
 
         private String dbname="";
         private String testname="";
 
         private static int K = 6;
 
-        public KNN(String db_name,String test_name){
+        KNN(String db_name, String test_name){
             dbname=db_name;
             testname=test_name;
             initdata();
@@ -57,10 +57,10 @@ class KNN {
                 File filename = new File(pathname); // 要读取以上路径的input.txt文件
                 InputStreamReader reader = new InputStreamReader(new FileInputStream(filename)); // 建立一个输入流对象reader
                 BufferedReader br = new BufferedReader(reader); // 建立一个对象，它把文件内容转成计算机能读懂的语言
-                String line = "";
-                while (line != null) {
+                String line;
+                while ((line = br.readLine())!= null) {
                     String[]temp;
-                    line = br.readLine(); // 一次读入一行数据
+                    // 一次读入一行数据
                     temp=line.split("[| ]");
                     Point p=new Point();
                     p.x=Double.parseDouble(temp[0]);
@@ -70,10 +70,13 @@ class KNN {
                     int len=temp.length;
                     len=(len-3)/2;
                     AP[] tap=new AP[len];
-                    for(int i=3;i<len;i++){
+                    int tk=3;
+                    for(int i=0;i<len;i++){
                         AP ap=new AP();
-                        tap[i].name=temp[i++];
-                        tap[i].level=Double.parseDouble(temp[i]);
+                        ap.name=temp[tk++];
+                        ap.level=Double.parseDouble(temp[tk]);
+                        tap[i]=ap;
+                        tk+=1;
                     }
                     dbaps.add(tap);
                 }
@@ -81,9 +84,9 @@ class KNN {
                 File filename2 = new File(pathname); // 要读取以上路径的input.txt文件
                 InputStreamReader reader2 = new InputStreamReader(new FileInputStream(filename2)); // 建立一个输入流对象reader
                 BufferedReader br2 = new BufferedReader(reader2); // 建立一个对象，它把文件内容转成计算机能读懂的语言
-                while (line != null) {
+                while ((line = br2.readLine()) != null) {
                     String[]temp;
-                    line = br2.readLine(); // 一次读入一行数据
+
                     temp=line.split("[| ]");
                     Point p=new Point();
                     p.x=Double.parseDouble(temp[0]);
@@ -93,10 +96,13 @@ class KNN {
                     int len=temp.length;
                     len=(len-3)/2;
                     AP[] tap=new AP[len];
-                    for(int i=3;i<len;i++){
+                    int tk=3;
+                    for(int i=0;i<len;i++){
                         AP ap=new AP();
-                        tap[i].name=temp[i++];
-                        tap[i].level=Double.parseDouble(temp[i]);
+                        ap.name=temp[tk++];
+                        ap.level=Double.parseDouble(temp[tk]);
+                        tap[i]=ap;
+                        tk+=1;
                     }
                     testaps.add(tap);
                 }
@@ -109,7 +115,7 @@ class KNN {
         * 待求解数组
         * 求出求解的分类与二维数组间元素的临近距离
        */
-        public  boolean clacKNN(){
+        boolean clacKNN(){
 
             double[] questionDistinces = new double[dbaps.size()];
             for(int j=0;j<testaps.size();j++) {

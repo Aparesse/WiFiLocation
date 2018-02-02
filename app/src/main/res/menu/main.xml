@@ -2,9 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/startScan"
-        android:title="@string/startScan"></item>
+        android:title="@string/startScan" />
     <item
         android:id="@+id/stopScan"
-        android:title="@string/stopScan"></item>
+        android:title="@string/stopScan" />
+    <item
+        android:id="@+id/jump"
+        android:title="@string/getNumActivity" />
 
 </menu>
